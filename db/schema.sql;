@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS <enter database name here!>;
+CREATE DATABASE <enter database name here!>;
