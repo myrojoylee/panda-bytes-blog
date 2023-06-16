@@ -12,6 +12,17 @@
     <div class="wrapper">
       <header>
         <h1>Panda Blog Test!</h1>
+        <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href="/profile">profile</a>
+            <button class="no-button" id="logout">
+              logout
+            </button>
+          {{else}}
+            <a href="/login">login</a>
+          {{/if}}
+        </nav>
       </header>
       <main>
         {{{body}}}
@@ -20,6 +31,10 @@
         <h3>My awesome footer</h3>
       </footer>
     </div>
+
+    {{#if logged_in}}
+      <script src="../../public/js/logout.js"></script>
+    {{/if}}
   </body>
 
 </html>
