@@ -1,0 +1,17 @@
+[
+  {
+    "username": "mickeyMouse",
+    "email": "mickey@clubhouse.com",
+    "password": "mickey123"
+  },
+  {
+    "username": "harryPotter",
+    "email": "harry@hogwarts.com",
+    "password": "harry123"
+  },
+  {
+    "username": "frodoBaggins",
+    "email": "frodo@shire.com",
+    "password": "frodo123"
+  }
+]
