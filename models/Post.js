@@ -11,17 +11,17 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    post_name: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    author: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: true,
-    },
-    author: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
   },
   {

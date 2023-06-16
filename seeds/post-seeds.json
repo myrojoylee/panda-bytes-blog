@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Awesome first post",
+    "author": "Mickey Mouse",
+    "description": "Test description"
+  },
+  {
+    "id": 2,
+    "title": "Amazing second post",
+    "author": "Minnie Mouse",
+    "description": "Test description again"
+  },
+  {
+    "id": 3,
+    "title": "Great third post",
+    "author": "Mickey Mouse",
+    "description": "Test description"
+  },
+  {
+    "id": 4,
+    "title": "Awful fourth post",
+    "author": "Minnie Mouse",
+    "description": "Test description again"
+  }
+]
