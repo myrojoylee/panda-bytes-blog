@@ -8,4 +8,49 @@
 
 body {
   background-color: powderblue;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  gap: 10px;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  gap: 2px;
+  flex-direction: column;
+  border: 1px solid red;
+}
+
+.post {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid blue;
+  gap: 1em;
+}
+
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+  grid-area: footer;
 }
