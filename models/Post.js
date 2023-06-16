@@ -21,11 +21,23 @@ Post.init(
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: true,
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    blogger_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "blogger",
+        key: "id",
+      },
     },
   },
   {
     sequelize,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "post",
