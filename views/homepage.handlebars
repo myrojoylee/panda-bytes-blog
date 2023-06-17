@@ -1,13 +1,10 @@
 <!--enter div components here-->
-<div class="wrapper">
 
-  {{#each posts as |post|}}
-    <div class="post">
+{{#each posts as |post|}}
+  <div class="post">
 
-      {{id}}.
-      {{title}}
+    {{post.id}}.
+    {{post.title}}
 
-    </div>
-  {{/each}}
-
-</div>
+  </div>
+{{/each}}
