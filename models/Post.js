@@ -15,11 +15,12 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    author: {
-      type: DataTypes.STRING,
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-    description: {
+    detail: {
       type: DataTypes.STRING,
     },
     date_created: {

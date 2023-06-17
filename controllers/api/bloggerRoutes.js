@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
       req.session.logged_in = true;
-
+      console.log(bloggerData);
       res.status(200).json(bloggerData);
     });
   } catch (err) {
@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
       req.session.blogger_id = bloggerData.id;
       req.session.logged_in = true;
 
-      res.json({ user: bloggerData, message: "You are now logged in!" });
+      res.json({ blogger: bloggerData, message: "You are now logged in!" });
     });
   } catch (err) {
     res.status(400).json(err);

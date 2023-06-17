@@ -1,7 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-class Blogger extends Model {}
+class Blogger extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 Blogger.init(
   {
@@ -34,7 +39,10 @@ Blogger.init(
   {
     hooks: {
       beforeCreate: async (newBloggerData) => {
-        newBloggerData.password = await bcrypt.has(newBloggerData.password, 11);
+        newBloggerData.password = await bcrypt.hash(
+          newBloggerData.password,
+          11
+        );
         return newBloggerData;
       },
       beforeUpdate: async (updatedBloggerData) => {
