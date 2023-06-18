@@ -102,6 +102,11 @@ main {
   align-items: center;
 }
 
+.post-card-title {
+  background-image: linear-gradient(rgb(233, 233, 220), rgb(197, 197, 187));
+  padding: 0 0.25em;
+}
+
 .comment-form-group {
   display: grid;
   width: 50%;
