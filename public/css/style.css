@@ -107,17 +107,21 @@ main {
   width: 50%;
 }
 
-.main-form-wrapper {
+.main-form-wrapper,
+.post-wrapper {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 5em;
-  padding: 1em;
+  gap: 3em;
+  padding: 2em;
   width: 100%;
 }
 
 .login-form,
-.signup-form {
+.signup-form,
+.new-post-card,
+.post-list,
+.post-detail {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -129,6 +133,23 @@ main {
 .form-group {
   display: flex;
   gap: 0.5em;
+}
+
+.new-post-card,
+.post-list {
+  width: 100%;
+}
+
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.new-post-group,
+.post-detail-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .notice {

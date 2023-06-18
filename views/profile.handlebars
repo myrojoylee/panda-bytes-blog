@@ -4,12 +4,12 @@
   </div>
 </div>
 
-<div class="">
-  <div class="">
+<div class="post-wrapper">
+  <section class="new-post-card">
     <h3>Create a New Post:</h3>
 
-    <form class="form new-post-form">
-      <div class="form-group">
+    <form class="new-post-form">
+      <article class="new-post-group">
         <label for="post-title">Post Title:</label>
         <input
           class="form-input"
@@ -17,27 +17,23 @@
           id="post-title"
           name="post-title"
         />
-      </div>
-      {{! <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div> }}
-      <div class="form-group">
+      </article>
+      <article class="post-detail-group">
         <label for="post-detail">Type the details below:</label>
         <textarea
-          class="form-input"
+          class="post-detail"
           id="post-detail"
           name="post-detail"
         ></textarea>
-      </div>
-      <div class="form-group">
+      </article>
+      <article class="form-group">
         <button type="submit" class="submitBtn">Post</button>
-      </div>
+      </article>
     </form>
-  </div>
+  </section>
 
   {{#if posts.length}}
-    <div class="post-list">
+    <section class="post-list">
       <h3>Current Posts:</h3>
 
       {{#each posts as |post|}}
@@ -50,7 +46,7 @@
           </div>
         </div>
       {{/each}}
-    </div>
+    </section>
   {{/if}}
 </div>
 
