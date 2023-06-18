@@ -2,9 +2,10 @@
 
 {{#each posts as |post|}}
   <div class="post">
-
-    {{post.id}}.
-    {{post.title}}
-
+    <section>
+      <h2>
+        <a href="/post/{{post.id}}">{{title}}</a>
+      </h2>
+    </section>
   </div>
 {{/each}}

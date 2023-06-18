@@ -6,23 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panda Bytes Blog!</title>
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <div class="wrapper">
+    <section class="wrapper">
       <header>
-        <a href="/">Panda Blog Test!</a>
         <nav>
           <!-- Conditionally render login or logout links -->
-          {{#if logged_in}}
-            <a href="/profile">profile</a>
-            <button class="no-button" id="logout">
-              logout
-            </button>
-          {{else}}
-            <a href="/login">login</a>
-          {{/if}}
+          <ul class="nav-bar">
+            <li>
+              {{#if logged_in}}
+                <a href="/profile">profile</a>
+                <button class="no-button" id="logout">
+                  logout
+                </button>
+              {{else}}
+                <a href="/login">login</a>
+              {{/if}}
+            </li>
+            <li>dashboard</li>
+            <li>home</li>
+          </ul>
         </nav>
+        <section class="title-description">
+          <h1>
+            <a href="/">Panda Bytes</a>
+          </h1>
+          <article class="blurb">Where we can digest tech bits together</article>
+        </section>
       </header>
       <main>
         {{{body}}}
@@ -30,7 +47,7 @@
       <footer>
         <h3>Have a tech byte to share? Post it here!</h3>
       </footer>
-    </div>
+    </section>
 
     {{#if logged_in}}
       <script src="/js/logout.js"></script>

@@ -1,7 +1,9 @@
-<div class="post-card">
-  <div class="post-card-header">
-    {{title}}
-  </div>
+<section class="post-card">
+  <article class="post-card-header">
+    <h2>
+      {{title}}
+    </h2>
+  </article>
 
   <div class="post-body">
     <p>
@@ -9,4 +11,24 @@
       {{detail}}
     </p>
   </div>
-</div>
+
+  <form class="form new-comment-form">
+    <div class="comment-form-group">
+      <label for="comment-detail">Type your comment below:</label>
+      <textarea
+        class="comment-box"
+        id="comment-detail"
+        name="comment-detail"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="submitCommentBtn"
+        data-id="{{post.id}}"
+      >Submit your comment</button>
+    </div>
+  </form>
+</section>
+
+<script src="/js/post.js"></script>
