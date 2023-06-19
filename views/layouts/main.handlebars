@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500&family=Pangolin&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -20,18 +20,20 @@
         <nav>
           <!-- Conditionally render login or logout links -->
           <ul class="nav-bar">
-            <li>
-              {{#if logged_in}}
-                <a href="/profile">profile</a>
-                <button class="no-button" id="logout">
-                  logout
-                </button>
-              {{else}}
-                <a href="/login">login</a>
-              {{/if}}
-            </li>
-            <a href="/login">dashboard</a>
-            <a href="/">home</a>
+
+            {{#if logged_in}}
+              <li><a href="/">home</a></li>
+              <li><a href="/dashboard">dashboard</a></li>
+              <li><a href="/login">login</a></li>
+              <li><p id="logout">logout</p></li>
+
+            {{else}}
+              <li><a href="/">home</a></li>
+              <li><a href="/login">dashboard</a></li>
+              <li> <a href="/login">login</a></li>
+
+            {{/if}}
+
           </ul>
         </nav>
         <section class="title-description">
@@ -52,7 +54,8 @@
         {{{body}}}
       </main>
       <footer>
-        <h3>Have a tech byte to share? Post it here!</h3>
+        <h4>Have a tech byte to share? Post it
+          <a href="/login"><span>here</span></a>!</h4>
       </footer>
     </section>
 

@@ -1,16 +1,17 @@
 <!--enter div components here-->
-
 {{#each posts as |post|}}
   <section class="post-card">
     <article class="post-card-title">
-      <h2>
-        <a href="/post/{{id}}">{{title}}</a>
-      </h2>
+
+      <a href="/post/{{id}}">
+        <h3>{{title}}</h3>
+      </a>
+
     </article>
     <article class="post-card-detail">
-      <h3>
+      <p>
         {{detail}}
-      </h3>
+      </p>
     </article>
   </section>
 {{/each}}
