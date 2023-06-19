@@ -72,6 +72,10 @@ h1 {
   gap: 0.25em;
 }
 
+h2 {
+  font-size: 1.5em;
+}
+
 h3 {
   font-size: 1.25em;
 }
@@ -93,6 +97,7 @@ p {
 .blurb {
   font-family: var(--ff--text);
   font-weight: 500;
+  padding: 0 3em;
 }
 
 .wrapper {
@@ -107,18 +112,25 @@ main {
   gap: 1em;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .post-card {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
   justify-content: center;
   align-content: center;
   border: 1px solid var(--clr--border);
   border-radius: 0.25em;
   width: 70%;
   padding: 0.5em;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 }
 
 .title-description {
@@ -128,18 +140,34 @@ main {
   align-items: center;
 }
 
-.post-card-title {
+.post-card-title,
+.post-card-header {
+  display: flex;
+  align-items: center;
   background-image: linear-gradient(#cfd9df, #e2ebf0);
   padding: 0 0.25em;
+}
+
+.post-card-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .post-card-detail {
   font-family: var(--ff--text);
 }
 
+.new-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 .comment-form-group {
-  display: grid;
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
 }
 
 .main-form-wrapper,
@@ -148,25 +176,40 @@ main {
   justify-content: center;
   flex-direction: row;
   gap: 3em;
-  padding: 1em;
-  /* width: 100%; */
+  padding: 1em 3em;
+  width: 100%;
+}
+
+.login-wrapper,
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .login-form,
 .signup-form,
 .new-post-card,
 .post-list,
-.post-detail {
+.post-detail,
+.post-body,
+.comment-detail {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   border: 1px solid var(--clr--border);
   border-radius: 0.25em;
-  padding: 1em;
+  padding: 0.5em;
+}
+
+.form-input {
+  height: 1.75em;
 }
 
 .form-group {
   display: flex;
+  align-items: center;
+  padding: 0.5em;
   gap: 0.5em;
 }
 
@@ -189,6 +232,7 @@ main {
 
 .notice {
   text-align: center;
+  padding: 0 3em;
 }
 
 button {
