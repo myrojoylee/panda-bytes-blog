@@ -239,6 +239,8 @@ button {
   border: 1px solid var(--clr--border);
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
+  width: 100%;
+  font-family: "Inconsolata", sans-serif;
 }
 
 input {
