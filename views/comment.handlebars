@@ -1,0 +1,61 @@
+<section class="post-card">
+  <div class="top">
+    <article class="post-card-header">
+      <h2>
+        {{title}}
+      </h2>
+      <p class="date-and-time">
+        Posted by
+        {{blogger.username}}
+      </p>
+    </article>
+
+    <article class="post-body">
+      <p>
+        {{detail}}
+      </p>
+    </article>
+  </div>
+  <div class="bottom">
+    <form class="new-comment-form">
+      <div class="comment-form-group">
+        <label for="comment-detail">Type your comment below:</label>
+        <textarea
+          class="form-input"
+          id="comment-detail"
+          name="comment-detail"
+        ></textarea>
+      </div>
+      <div class="comment-form-group">
+        <button
+          type="submit"
+          class="submitCommentBtn"
+          data-id="{{post.id}}"
+        >Submit your comment</button>
+      </div>
+    </form>
+  </div>
+  {{! renders list of comments if they exist }}
+
+  <article class="comment-list">
+    {{#if comments.length}}
+
+      <h3>Current Posts:</h3>
+
+      {{#each comments as |comment|}}
+
+        <div class="post-body">
+          Comment:
+
+          <p>{{detail}}</p>
+
+        </div>
+
+      {{/each}}
+
+    {{/if}}
+
+  </article>
+</section>
+
+<script src="/js/comment.js"></script>

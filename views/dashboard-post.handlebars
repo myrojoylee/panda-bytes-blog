@@ -1,0 +1,20 @@
+{{!-- <h2>Welcome, <span id="current-user">{{username}}</span>!</h2> --}}
+<section class="dashboard-post-card">
+  <article class="post-card-title">
+
+    <h3>{{title}}</h3>
+  </article>
+  <article class="post-card-detail">
+    <p><span id="blogger-username">{{blogger.username}}</span>
+      says:
+    </p>
+    <p>
+      {{detail}}
+    </p>
+  </article>
+  <div class="delete">
+    <button class="deleteBtn" data-id="{{id}}">DELETE</button>
+  </div>
+</section>
+
+<script src="/js/post.js"></script>

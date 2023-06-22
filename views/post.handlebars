@@ -1,42 +1,44 @@
+{{!-- <h2>Welcome, <span id="current-user">{{username}}</span>!</h2> --}}
 <section class="post-card">
-  <div class="top">
-    <article class="post-card-header">
-      <h2>
-        {{title}}
-      </h2>
-      <p class="date-and-time">
-        Posted by
-        {{blogger.username}}
-        on
-        {{{format_date date_created}}}
-      </p>
-    </article>
+  <article class="post-card-title">
 
-    <article class="post-body">
-      <p>
-        {{detail}}
-      </p>
-    </article>
-  </div>
-  <div class="bottom">
-    <form class="new-comment-form">
-      <div class="comment-form-group">
-        <label for="comment-detail">Type your comment below:</label>
-        <textarea
-          class="form-input"
-          id="comment-detail"
-          name="comment-detail"
-        ></textarea>
-      </div>
-      <div class="comment-form-group">
-        <button
-          type="submit"
-          class="submitCommentBtn"
-          data-id="{{post.id}}"
-        >Submit your comment</button>
-      </div>
-    </form>
-  </div>
+    <h3>{{title}}</h3>
+  </article>
+  <article class="post-card-detail">
+    <p><span id="blogger-username">{{blogger.username}}</span>
+      says:
+    </p>
+    <p>
+      {{detail}}
+    </p>
+  </article>
+  <a href="/post/{{id}}/comment">
+    <div class="comment">
+      <button class="commentBtn" data-id="{{id}}">Add a Comment</button>
+    </div>
+  </a>
 </section>
 
-{{! <script src="/js/post.js"></script> }}
+<section class="comment-wrapper">
+
+  {{#if comments.length}}
+    <article class="comment-list">
+      <h3>Current Posts:</h3>
+
+      {{#each comments as |comment|}}
+
+        <div class="comment-card">
+          <h4>
+            {{id}}:
+          </h4>
+
+          <p>{{{format_date date_created}}}</p>
+          <p>{{detail}}</p>
+
+        </div>
+      {{/each}}
+    </article>
+  {{/if}}
+</section>
+
+{{! <script src="/js/comment.js"></script> }}

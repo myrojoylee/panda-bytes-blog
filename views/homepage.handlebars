@@ -2,15 +2,20 @@
 {{#each posts as |post|}}
   <section class="post-card">
     <article class="post-card-title">
+      {{#if logged_in}}
+        <a href="/dashboard-post/{{post.id}}"></a>
+      {{else}}
+        <a href="/post/{{post.id}}">
+          <h3><span class="numbered-post">{{id}}</span>{{post.title}}</h3>
+          <p class="blog-author">{{blogger.username}}</p>
+        </a>
 
-      <a href="/post/{{id}}">
-        <h3>{{title}}</h3>
-      </a>
+      {{/if}}
 
     </article>
     <article class="post-card-detail">
       <p>
-        {{detail}}
+        {{post.detail}}
       </p>
     </article>
   </section>

@@ -2,6 +2,22 @@ const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 const { Post } = require("../../models");
 
+router.get("/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req, params.id, {
+      include: [
+        {
+          model: Blogger,
+          attributes: ["username"],
+        },
+      ],
+    });
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -18,12 +34,18 @@ router.post("/", withAuth, async (req, res) => {
 
 router.put("/:id", withAuth, async (req, res) => {
   try {
-    const updatedPostData = await Post.update(req.body, {
-      where: {
-        id: req.params.id,
-        blogger_id: req.session.blogger_id,
+    const updatedPostData = await Post.update(
+      {
+        title: req.body.title,
+        detail: req.body.detail,
       },
-    });
+      {
+        where: {
+          id: req.params.id,
+          blogger_id: req.session.blogger_id,
+        },
+      }
+    );
 
     if (!updatedPostData) {
       res.status(400).json({ message: "No post found with that id!" });

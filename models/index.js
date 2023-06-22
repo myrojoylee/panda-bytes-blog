@@ -11,12 +11,22 @@ Post.belongsTo(Blogger, {
   foreignKey: "blogger_id",
 });
 
-Post.hasMany(Comment, {
-  foreignKey: "post_id",
+Blogger.hasMany(Comment, {
+  foreignKey: "blogger_id",
+  onDelete: "CASCADE",
 });
 
 Comment.belongsTo(Blogger, {
   foreignKey: "blogger_id",
+});
+
+Post.hasMany(Comment, {
+  as: "comments",
+  onDelete: "CASCADE",
+});
+
+Comment.belongsTo(Post, {
+  foreign_key: "post_id",
 });
 
 module.exports = { Blogger, Post, Comment };

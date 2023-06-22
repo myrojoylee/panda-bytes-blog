@@ -180,11 +180,28 @@ main {
 }
 
 .login-wrapper,
-.signup-wrapper {
+.signup-wrapper,
+.dashboard-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 1em 3em;
+  padding: 1em 2em;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.add-new-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    var(--clr--gr--dark),
+    var(--clr--gr--light)
+  );
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .option {
@@ -197,17 +214,23 @@ main {
 .post-list,
 .post-detail,
 .post-body,
-.comment-detail {
+.comment-detail,
+.dashboard-post-card {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   border: 1px solid var(--clr--border);
   border-radius: 0.25em;
   padding: 0.5em;
+  width: 80%;
 }
 
 .form-input {
   height: 1.75em;
+}
+
+.comment-detail {
+  height: 3em;
 }
 
 .form-group {
@@ -220,6 +243,14 @@ main {
 .new-post-card,
 .post-list {
   width: 100%;
+}
+
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  border: 1px solid var(--clr--border);
 }
 
 .new-post-form {

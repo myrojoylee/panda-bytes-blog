@@ -1,0 +1,22 @@
+[
+  {
+    "blogger_id": 1,
+    "post_id": 1,
+    "detail": "This was ok"
+  },
+  {
+    "blogger_id": 1,
+    "post_id": 1,
+    "detail": "I liked this post"
+  },
+  {
+    "blogger_id": 1,
+    "post_id": 2,
+    "detail": "I feel like we are continually testing"
+  },
+  {
+    "blogger_id": 1,
+    "post_id": 2,
+    "detail": "Unnecessary comment"
+  }
+]

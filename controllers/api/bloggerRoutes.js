@@ -8,7 +8,6 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
       req.session.logged_in = true;
-      console.log(bloggerData);
       res.status(200).json(bloggerData);
     });
   } catch (err) {

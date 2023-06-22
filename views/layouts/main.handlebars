@@ -22,31 +22,29 @@
           <ul class="nav-bar">
 
             {{#if logged_in}}
-              <li><a href="/">home</a></li>
+              <li><a href="/" class="navbar-list">home</a></li>
               <li><a href="/dashboard">dashboard</a></li>
               <li><a href="/login">login</a></li>
               <li><p id="logout">logout</p></li>
-
             {{else}}
               <li><a href="/">home</a></li>
               <li><a href="/login">dashboard</a></li>
               <li> <a href="/login">login</a></li>
-
             {{/if}}
 
           </ul>
         </nav>
         <section class="title-description">
-          <a href="/">
-            <h1>Panda
-              <img
-                class="panda-logo"
-                src="/css/assets/panda-bytes-logo.png"
-                alt="panda-logo"
-              />
-              Bytes
-            </h1>
-          </a>
+
+          <h1>Panda
+            <img
+              class="panda-logo"
+              src="/css/assets/panda-bytes-logo.png"
+              alt="panda-logo"
+            />
+            Bytes
+          </h1>
+
           <article class="blurb">Where we can digest tech bits together</article>
         </section>
       </header>

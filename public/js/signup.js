@@ -6,7 +6,7 @@ const signupFormHandler = async (event) => {
   const password = document.querySelector("#password-signup").value.trim();
 
   if (username && email && password) {
-    const response = await fetch("/api/bloggers/signup", {
+    const response = await fetch("/api/bloggers", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
@@ -15,9 +15,12 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      alert(`Password must be at least 8 characters.`);
     }
   }
+
+  let currentUser = username;
+  return currentUser;
 };
 
 document
