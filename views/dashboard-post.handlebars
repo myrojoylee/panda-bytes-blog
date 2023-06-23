@@ -1,20 +1,33 @@
-{{!-- <h2>Welcome, <span id="current-user">{{username}}</span>!</h2> --}}
-<section class="dashboard-post-card">
-  <article class="post-card-title">
+<div class="post-wrapper">
+  <section class="new-post-card">
+    <h3>Edit Post:</h3>
 
-    <h3>{{title}}</h3>
-  </article>
-  <article class="post-card-detail">
-    <p><span id="blogger-username">{{blogger.username}}</span>
-      says:
-    </p>
-    <p>
-      {{detail}}
-    </p>
-  </article>
-  <div class="delete">
-    <button class="deleteBtn" data-id="{{id}}">DELETE</button>
-  </div>
-</section>
+    <form class="update-post-form">
+      <article class="new-post-group">
+        <label for="post-title">Post Title:</label>
+        <textarea
+          class="form-input"
+          type="text"
+          id="update-title"
+          name="update-title"
+        >{{title}}</textarea>
+      </article>
+      <article class="post-detail-group">
+        <label for="post-detail">Type details below:</label>
+        <textarea
+          class="update-detail"
+          id="update-detail"
+          name="update-detail"
+        >{{detail}}</textarea>
+      </article>
+
+      <article class="update-delete">
+        <button class="updateBtn" data-id="{{id}}">UPDATE</button>
+        <button class="deleteBtn" data-id="{{id}}">DELETE</button>
+      </article>
+
+    </form>
+  </section>
+</div>
 
 <script src="/js/post.js"></script>

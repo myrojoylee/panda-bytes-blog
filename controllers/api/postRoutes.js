@@ -4,7 +4,7 @@ const { Post } = require("../../models");
 
 router.get("/:id", async (req, res) => {
   try {
-    const postData = await Post.findByPk(req, params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: Blogger,

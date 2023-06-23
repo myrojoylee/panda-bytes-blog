@@ -215,7 +215,9 @@ main {
 .post-detail,
 .post-body,
 .comment-detail,
-.dashboard-post-card {
+.dashboard-post-card,
+.comment-list,
+.comment-card {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -223,6 +225,15 @@ main {
   border-radius: 0.25em;
   padding: 0.5em;
   width: 80%;
+}
+
+.comment-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 3em;
+  padding: 1em 3em;
+  width: 100%;
 }
 
 .form-input {
@@ -263,6 +274,11 @@ main {
 .post-detail-group {
   display: flex;
   flex-direction: column;
+}
+
+.update-delete {
+  display: flex;
+  gap: 2em;
 }
 
 .notice {
