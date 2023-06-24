@@ -1,29 +1,23 @@
-<div class="post-wrapper">
-  <section class="new-post-card">
-    <h3>Create a New Post:</h3>
+<section class="card-wrapper">
+  <h3>Create a New Post:</h3>
 
-    <form class="new-post-form">
-      <article class="new-post-group">
-        <label for="post-title">Post Title:</label>
-        <input
-          class="form-input"
-          type="text"
-          id="post-title"
-          name="post-title"
-        />
-      </article>
-      <article class="post-detail-group">
-        <label for="post-detail">Type the details below:</label>
-        <textarea
-          class="post-detail"
-          id="post-detail"
-          name="post-detail"
-        ></textarea>
-      </article>
-      <article class="form-group">
-        <button type="submit" class="submitPostBtn">Post</button>
-      </article>
-    </form>
-  </section>
+  <form class="form new-post-form">
+    <article class="new-post-group">
+      <label for="post-title">Post Title:</label>
+      <input class="form-input" type="text" id="post-title" name="post-title" />
+    </article>
+    <article class="new-post-group">
+      <label for="card-detail">Type the details below:</label>
+      <textarea
+        class="card-detail"
+        id="post-detail"
+        name="post-detail"
+      ></textarea>
+    </article>
+    <article>
+      <button type="submit" class="submitPostBtn">Submit Post</button>
+    </article>
+  </form>
+</section>
 
-  <script src="/js/new-post.js"></script>
+<script src="/js/new-post.js"></script>

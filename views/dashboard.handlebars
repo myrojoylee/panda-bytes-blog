@@ -1,15 +1,15 @@
-<section class="dashboard-wrapper">
+<section class="card-wrapper">
   <article>
     <h2>Welcome, <span class="current-user">{{username}}</span>!</h2>
   </article>
 
   {{#if posts.length}}
-    <article class="post-list">
+    <article class="card-wrapper">
       <h3>Current Posts:</h3>
 
       {{#each posts as |post|}}
 
-        <div class="dashboard-card">
+        <div class="card">
           <a href="/dashboard/post/{{id}}" data-id="{{id}}">
             <h4>
               {{id}}:
@@ -24,5 +24,3 @@
   {{/if}}
   <a href="/new-post" class="add-new-post">+</a>
 </section>
-{{! <script src="/js/post.js"></script>
-<script src="/js/dashboard.js"></script> }}

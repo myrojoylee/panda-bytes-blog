@@ -1,13 +1,16 @@
 <!--enter div components here-->
 {{#each posts as |post|}}
-  <section class="post-card">
-    <article class="post-card-title">
+  <section class="card">
+    <article class="card-header">
       <a href="/post/{{post.id}}">
         <h3><span class="numbered-post">{{id}}</span>{{post.title}}</h3>
-        <p class="blog-author">{{blogger.username}}</p>
       </a>
+      <p class="blog-author">Posted by
+        {{blogger.username}}
+        on
+        {{format_date date_created}}</p>
     </article>
-    <article class="post-card-detail">
+    <article class="card-detail">
       <p>
         {{post.detail}}
       </p>
