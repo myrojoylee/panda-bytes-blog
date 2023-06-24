@@ -2,21 +2,25 @@
   {
     "id": 1,
     "title": "Awesome first post",
-    "detail": "Test description"
+    "detail": "Mickey wrote this",
+    "blogger_id": 1
   },
   {
     "id": 2,
     "title": "Amazing second post",
-    "detail": "Test description again"
+    "detail": "Harry is in Hogwarts",
+    "blogger_id": 2
   },
   {
     "id": 3,
     "title": "Great third post",
-    "detail": "Test description"
+    "detail": "Mickey is in the clubhouse",
+    "blogger_id": 1
   },
   {
     "id": 4,
     "title": "Awful fourth post",
-    "detail": "Test description again"
+    "detail": "I am Frodo",
+    "blogger_id": 3
   }
 ]

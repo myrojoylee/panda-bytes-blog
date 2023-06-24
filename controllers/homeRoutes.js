@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Blogger } = require("../models");
+const { Post, Blogger, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -17,14 +17,6 @@ router.get("/", async (req, res) => {
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    // Find the logged in blogger based on the session ID
-    // const bloggerData = await Blogger.findByPk(req.session.blogger_id, {
-    //   attributes: { exclude: ["password"] },
-    //   include: [{ model: Post }],
-    // });
-
-    // const blogger = bloggerData.get({ plain: true });
-    // Pass serialized data and session flag into template
     res.render("homepage", {
       posts,
       logged_in: req.session.logged_in,
@@ -40,11 +32,16 @@ router.get("/dashboard", withAuth, async (req, res) => {
     // Find the logged in blogger based on the session ID
     const bloggerData = await Blogger.findByPk(req.session.blogger_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
+      include: [
+        {
+          model: Post,
+        },
+      ],
     });
 
     const blogger = bloggerData.get({ plain: true });
 
+    console.log(blogger);
     res.render("dashboard", {
       ...blogger,
       logged_in: true,
@@ -129,62 +126,96 @@ router.get("/new-post", withAuth, async (req, res) => {
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      include: ["comments"],
-    });
-
-    const postCommentData = await Post.findAll({
-      include: ["comments"],
+      include: [
+        {
+          model: Blogger,
+          attributes: ["username", "id"],
+        },
+        {
+          model: Comment,
+          attributes: ["detail", "blogger_id", "post_id"],
+        },
+      ],
     });
 
     const post = postData.get({ plain: true });
 
-    res.render("post", {
-      ...post,
-      logged_in: req.session.logged_in,
-    });
+    console.log(post);
+    console.log(post.blogger_id);
+    console.log(req.session.blogger_id);
+    if (post.blogger_id === req.session.blogger_id) {
+      res.render("post", {
+        ...post,
+        logged_in: req.session.logged_in,
+      });
+    } else {
+      res.render("comment", {
+        ...post,
+        logged_in: req.session.logged_in,
+      });
+    }
+    // res.render("post", {
+    //   ...post,
+    //   logged_in: req.session.logged_in,
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 //one comment
-router.get("post/:id/comment", withAuth, async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          attributes: ["username"],
-        },
-      ],
-    });
+// router.get("post/:id/comment", withAuth, async (req, res) => {
+//   try {
+//     const postCommentData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Comment,
+//           attributes: ["username"],
+//         },
+//       ],
+//     });
 
-    const post = postData.get({ plain: true });
-    res.render("comment", {
-      post,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const postData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Blogger,
+//           attributes: ["username"],
+//           where: {
+//             id: req.params.id,
+//           },
+//         },
+//       ],
+//     });
 
-router.get("/post/:id/comment", withAuth, async (req, res) => {
-  try {
-    res.render("comment");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const post = postData.get({ plain: true });
+//     const postComment = postCommentData.get({ plain: true });
+//     console.log(post);
+//     console.log(postComment);
+//     res.render("comment", {
+//       post,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+// router.get("/post/:id/comment", withAuth, async (req, res) => {
+//   try {
+//     res.render("comment");
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // updating a post
-router.get("/post/:id/update", withAuth, async (req, res) => {
-  try {
-    res.render("update-post");
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/post/:id/update", withAuth, async (req, res) => {
+//   try {
+//     res.render("update-post");
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/login", (req, res) => {
   // If the blogger is already logged in, redirect the request to another route

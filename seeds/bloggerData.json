@@ -1,15 +1,18 @@
 [
   {
+    "id": 1,
     "username": "mickeyMouse",
     "email": "mickey@clubhouse.com",
     "password": "mickey123"
   },
   {
+    "id": 2,
     "username": "harryPotter",
     "email": "harry@hogwarts.com",
     "password": "harry123"
   },
   {
+    "id": 3,
     "username": "frodoBaggins",
     "email": "frodo@shire.com",
     "password": "frodo123"

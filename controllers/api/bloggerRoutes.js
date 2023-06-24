@@ -5,9 +5,11 @@ router.post("/", async (req, res) => {
   try {
     const bloggerData = await Blogger.create(req.body);
 
+    // saves session info
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
       req.session.logged_in = true;
+      req.session.is_author = true;
       res.status(200).json(bloggerData);
     });
   } catch (err) {

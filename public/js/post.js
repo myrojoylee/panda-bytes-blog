@@ -75,22 +75,3 @@ document
 document
   .querySelectorAll(".deleteBtn")
   .forEach((btn) => btn.addEventListener("click", deletePostHandler));
-
-// let username = [];
-// let blurb = document.querySelector(".blurb");
-// const currentUser = document.createElement("p");
-// blurb.appendChild(currentUser);
-// currentUser.textContent = username[0];
-
-// function captureUsername() {
-//   // let postList = document.querySelectorAll(".numbered-post");
-//   // let checkLogin = document.querySelectorAll(".nav");
-
-//   // checks dashboard for name and puts to variable
-//   let currentUser = document.querySelector(".current-user").textContent;
-//   username.push(currentUser);
-//   console.log(username);
-//   return username;
-// }
-
-// captureUsername();
