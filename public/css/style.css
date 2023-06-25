@@ -1,3 +1,7 @@
+/*=============================================== */
+/*                   GLOBAL STYLES                */
+/*=============================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +15,7 @@
   --clr--gr--dark: #a1c4fd;
   --clr--gr--light: #c2e9fb;
   --clr--border: #006699;
+  --clr--lightborder: #0066997e;
   --clr--body--drk: #ebedee;
   --clr--body--light: #fdfbfb;
   --ff--body: "Pangolin", sans-serif;
@@ -30,12 +35,13 @@ a:hover {
   font-style: italic;
 }
 
+/*=============================================== */
+/*                    BODY STYLES                 */
+/*=============================================== */
+
 body {
   display: flex;
-  background-image: linear-gradient(
-    var(--clr--body--drk),
-    var(--clr--body--light)
-  );
+  background-color: var(--clr--body--light);
   background-repeat: no-repeat;
   background-size: auto;
   width: 100%;
@@ -80,7 +86,8 @@ h3 {
   font-size: 1.25em;
 }
 
-p {
+p,
+.current-user {
   font-size: 1em;
 }
 
@@ -90,6 +97,9 @@ p {
 
 .title-description {
   display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
   text-align: center;
   padding-top: 1em;
 }
@@ -115,12 +125,9 @@ main {
   width: 100%;
 }
 
-.title-description {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-}
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-== */
+/*           CARD  STYLES          */
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-== */
 
 .card-header {
   display: flex;
@@ -128,13 +135,7 @@ main {
   justify-content: space-between;
   align-items: center;
   background-image: linear-gradient(#cfd9df, #e2ebf0);
-  padding: 0 0.25em;
   width: 100%;
-}
-
-.post-card-header {
-  display: flex;
-  justify-content: space-between;
 }
 
 .card-detail {
@@ -161,6 +162,11 @@ main {
   width: fit-content;
 }
 
+.go-login {
+  border-bottom: 1px solid black;
+  margin-left: 0.25em;
+}
+
 .card,
 .form {
   display: flex;
@@ -181,8 +187,15 @@ main {
   align-items: center;
   gap: 0.5em;
   border-radius: 0.25em;
-  padding: 0.5em;
   width: 100%;
+}
+
+.post-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 2em;
+  border: 1px solid var(--clr--lightborder);
 }
 
 .form-group {
@@ -193,16 +206,8 @@ main {
   width: 100%;
 }
 
-.post-body,
-.post-body p {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border: 1px solid var(--clr--border);
-}
-
 .form-input {
-  height: 1.75em;
+  height: 2em;
 }
 
 .new-post-card,
@@ -213,15 +218,8 @@ main {
 .new-post-form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-}
-
-.new-post-group,
-.post-detail-group,
-.form-detail {
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  gap: 1em;
 }
 
 .update-delete {
@@ -273,5 +271,14 @@ footer {
 @media screen and (max-width: 767px) {
   .main-form-wrapper {
     flex-direction: column;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: start;
   }
 }

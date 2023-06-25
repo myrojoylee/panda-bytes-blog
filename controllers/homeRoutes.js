@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Post, Blogger, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
+// rendering homepage with recent posts from all users
 router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -26,7 +27,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// go to dashboard if logged in
+// rendering dashboard if logged in
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     // Find the logged in blogger based on the session ID
@@ -51,6 +52,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// rendering logged-in user's post by id
 router.get("/dashboard/post/:id", withAuth, async (req, res) => {
   try {
     // Find the logged in blogger based on the session ID
@@ -82,7 +84,7 @@ router.get("/dashboard/post/:id", withAuth, async (req, res) => {
   }
 });
 
-// form for new post
+// rendering form for new post
 router.get("/new-post", withAuth, async (req, res) => {
   try {
     // Find the logged in blogger based on the session ID
@@ -102,27 +104,7 @@ router.get("/new-post", withAuth, async (req, res) => {
   }
 });
 
-// get all
-// router.get("/post", withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in blogger based on the session ID
-//     const bloggerData = await Blogger.findByPk(req.session.blogger_id, {
-//       attributes: { exclude: ["password"] },
-//       include: [{ model: Post }],
-//     });
-
-//     const blogger = bloggerData.get({ plain: true });
-
-//     res.render("post", {
-//       ...blogger,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// getting one post
+// rendering individual post route
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -154,45 +136,45 @@ router.get("/post/:id", withAuth, async (req, res) => {
         logged_in: req.session.logged_in,
       });
     }
-    // res.render("post", {
-    //   ...post,
-    //   logged_in: req.session.logged_in,
-    // });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-//one comment
-// router.get("post/:id/comment", withAuth, async (req, res) => {
+// one comment
+// router.get("post/:id/", withAuth, async (req, res) => {
 //   try {
 //     const postCommentData = await Post.findByPk(req.params.id, {
 //       include: [
 //         {
 //           model: Comment,
-//           attributes: ["username"],
+//           attributes: ["detail", "blog_id", "post_id"],
 //         },
-//       ],
-//     });
-
-//     const postData = await Post.findByPk(req.params.id, {
-//       include: [
 //         {
 //           model: Blogger,
 //           attributes: ["username"],
-//           where: {
-//             id: req.params.id,
-//           },
 //         },
 //       ],
 //     });
 
-//     const post = postData.get({ plain: true });
+// const postData = await Post.findByPk(req.params.id, {
+//   include: [
+//     {
+//       model: Blogger,
+//       attributes: ["username"],
+//       where: {
+//         id: req.params.id,
+//       },
+//     },
+//   ],
+// });
+
+//     // const post = postData.get({ plain: true });
 //     const postComment = postCommentData.get({ plain: true });
-//     console.log(post);
+//     // console.log(post);
 //     console.log(postComment);
 //     res.render("comment", {
-//       post,
+//       postComment,
 //       logged_in: req.session.logged_in,
 //     });
 //   } catch (err) {
@@ -200,23 +182,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
 //   }
 // });
 
-// router.get("/post/:id/comment", withAuth, async (req, res) => {
-//   try {
-//     res.render("comment");
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// updating a post
-// router.get("/post/:id/update", withAuth, async (req, res) => {
-//   try {
-//     res.render("update-post");
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
+// rendering login route
 router.get("/login", (req, res) => {
   // If the blogger is already logged in, redirect the request to another route
   try {
@@ -230,6 +196,7 @@ router.get("/login", (req, res) => {
   }
 });
 
+// rendering signup route
 router.get("/signup", (req, res) => {
   try {
     res.render("signup");

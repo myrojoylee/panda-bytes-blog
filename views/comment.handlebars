@@ -1,24 +1,25 @@
 <section class="card-wrapper">
   <div class="card">
-    <article class="card-header">
-      <h2>
-        {{title}}
-      </h2>
-      <p class="date-and-time">
-        Posted by
-        {{blogger.username}}
-        <span id="blogger-id">{{blogger_id}}</span>
-      </p>
-    </article>
+    <div class="post-wrapper">
+      <article class="card-header">
+        <h2>
+          {{title}}
+        </h2>
+        <p class="date-and-time">
+          Posted by
+          {{blogger.username}}
+          <span id="blogger-id">{{blogger_id}}</span>
+        </p>
+      </article>
 
-    <article class="post-body">
-      <p>
-        {{detail}}
-      </p>
-    </article>
-
+      <article class="post-body">
+        <p>
+          {{detail}}
+        </p>
+      </article>
+    </div>
     <form class="card-wrapper">
-      <article class="new-post-group">
+      <article class="new-post-form">
         <label class="form-detail" for="comment-detail">Type your comment below:</label>
         <textarea
           class="form-detail"
@@ -26,13 +27,12 @@
           name="comment-detail"
         ></textarea>
       </article>
-      <article class="form-group">
-        <button
-          type="submit"
-          class="submitCommentBtn"
-          data-id="{{post.id}}"
-        >Submit your comment</button>
-      </article>
+
+      <button
+        type="submit"
+        class="submitCommentBtn"
+        data-id="{{post.id}}"
+      >Submit your comment</button>
     </form>
   </div>
   {{! renders list of comments if they exist }}

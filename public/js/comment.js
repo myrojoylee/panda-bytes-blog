@@ -3,6 +3,7 @@ const commentFormHandler = async (event) => {
 
   const detail = document.querySelector("#comment-detail").value;
   const blogger_id = Number(document.querySelector("#blogger-id").textContent);
+
   console.log(`hey`);
   if (detail) {
     const response = await fetch(`/api/comments`, {
