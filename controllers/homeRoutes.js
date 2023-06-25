@@ -104,7 +104,7 @@ router.get("/new-post", withAuth, async (req, res) => {
   }
 });
 
-// rendering individual post route
+// rendering individual post route with comments
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -122,17 +122,23 @@ router.get("/post/:id", withAuth, async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    console.log(post);
-    console.log(post.blogger_id);
-    console.log(req.session.blogger_id);
+    // console.log(post);
+    // console.log(post.blogger_id);
+    // console.log(req.session.blogger_id);
+    // console.log(req.session.blogger_name);
+
     if (post.blogger_id === req.session.blogger_id) {
       res.render("post", {
         ...post,
+        blogger_id: req.session.blogger_id,
+        blogger_name: req.session.blogger_name,
         logged_in: req.session.logged_in,
       });
     } else {
       res.render("comment", {
         ...post,
+        blogger_id: req.session.blogger_id,
+        blogger_name: req.session.blogger_name,
         logged_in: req.session.logged_in,
       });
     }
@@ -140,47 +146,6 @@ router.get("/post/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// one comment
-// router.get("post/:id/", withAuth, async (req, res) => {
-//   try {
-//     const postCommentData = await Post.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Comment,
-//           attributes: ["detail", "blog_id", "post_id"],
-//         },
-//         {
-//           model: Blogger,
-//           attributes: ["username"],
-//         },
-//       ],
-//     });
-
-// const postData = await Post.findByPk(req.params.id, {
-//   include: [
-//     {
-//       model: Blogger,
-//       attributes: ["username"],
-//       where: {
-//         id: req.params.id,
-//       },
-//     },
-//   ],
-// });
-
-//     // const post = postData.get({ plain: true });
-//     const postComment = postCommentData.get({ plain: true });
-//     // console.log(post);
-//     console.log(postComment);
-//     res.render("comment", {
-//       postComment,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 // rendering login route
 router.get("/login", (req, res) => {

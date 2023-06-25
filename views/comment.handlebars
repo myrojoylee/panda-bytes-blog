@@ -3,12 +3,12 @@
     <div class="post-wrapper">
       <article class="card-header">
         <h2>
-          {{title}}
+          [<span class="numbered-post">{{id}}</span>]{{title}}
         </h2>
         <p class="date-and-time">
           Posted by
           {{blogger.username}}
-          <span id="blogger-id">{{blogger_id}}</span>
+          <span id="blogger-id">{{blogger.id}}</span>
         </p>
       </article>
 
@@ -25,6 +25,7 @@
           class="form-detail"
           id="comment-detail"
           name="comment-detail"
+          placeholder="Commenting as {{blogger_name}}(Member ID:{{blogger_id}})..."
         ></textarea>
       </article>
 
@@ -35,16 +36,16 @@
       >Submit your comment</button>
     </form>
   </div>
-  {{! renders list of comments if they exist }}
 
-  <article class="card">
+  {{! renders list of comments if they exist }}
+  <article class="card-wrapper">
+
     {{#if comments.length}}
-      <h3>Comments:</h3>
+      <h3>{{comments.length}} Comments:</h3>
       {{#each comments as |comment|}}
-        <div class="form-group">
-          <p class="comment-title">Comment:</p>
-          <p class="comment-title">{{blogger_id}}</p>
-          <p class="comment-title">{{detail}}</p>
+        <div class="card">
+          <p class="card-detail" id="commenter">Member says:</p>
+          <p class="card-detail">{{detail}}</p>
         </div>
       {{/each}}
     {{/if}}

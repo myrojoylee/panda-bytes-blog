@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
-    "title": "Awesome first post",
-    "detail": "Mickey wrote this",
+    "title": "Models, Views, & Controllers",
+    "detail": "Dinosaurs eat man; woman inherits the earth. Clever girl. It's...it's a dinosaur... I bring scientists, you bring a rockstar. Must go faster! Dinosaurs eat man; woman inherits the earth. Bloody move! I thought you were one of your big brothers. I'm always on the lookout for a future ex-Mrs. Malcolm. Must go faster! Because we're being hunted. Because we're being hunted.",
     "blogger_id": 1
   },
   {
     "id": 2,
-    "title": "Amazing second post",
-    "detail": "Harry is in Hogwarts",
+    "title": "Separation of Concerns",
+    "detail": "It's...it's a dinosaur... T-Rex doesn't want to be fed. How do you know they're all female? I'm gonna run you over when I come back down! We spared no expense. They show extreme intelligence, even problem-solving intelligence. Yeah, but your scientists were so preoccupied with whether or not they could that they didn't stop to think if they should. I'm gonna run you over when I come back down! Remind me to thank John for the wonderful weekend. Well, at least you're out of the tree. He's gonna eat the goat?",
     "blogger_id": 2
   },
   {
     "id": 3,
-    "title": "Great third post",
-    "detail": "Mickey is in the clubhouse",
+    "title": "Concerns of Separation",
+    "detail": "Don't you see the danger, John, inherent in what you're doing here? What about the lysine contingency? Bloody move! Remind me to thank John for the wonderful weekend. Because we're being hunted. Don't you see the danger, John, inherent in what you're doing here? He's gonna eat the goat? Look at all the blood.",
     "blogger_id": 1
   },
   {
     "id": 4,
-    "title": "Awful fourth post",
-    "detail": "I am Frodo",
+    "title": "The Great Divide",
+    "detail": "You bred raptors? It's a Unix system, I know this! There's no unauthorized breeding in Jurassic Park. There's no unauthorized breeding in Jurassic Park. It's a Unix system, I know this! I can't get Jurassic Park back online without Dennis Nedry. He's gonna eat the goat?",
     "blogger_id": 3
   }
 ]

@@ -8,6 +8,7 @@ router.post("/", async (req, res) => {
     // saves session info
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
+      req.session.blogger_name = bloggerData.username;
       req.session.logged_in = true;
       req.session.is_author = true;
       res.status(200).json(bloggerData);
@@ -19,9 +20,14 @@ router.post("/", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const bloggerData = await Blogger.findOne({
-      where: { email: req.body.email },
-    });
+    const bloggerData = await Blogger.findOne(
+      {
+        where: { email: req.body.email },
+      },
+      {
+        include: [{ attributes: ["username"] }],
+      }
+    );
 
     if (!bloggerData) {
       res
@@ -41,8 +47,8 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
+      req.session.blogger_name = bloggerData.username;
       req.session.logged_in = true;
-
       res.json({ blogger: bloggerData, message: "You are now logged in!" });
     });
   } catch (err) {

@@ -2,13 +2,12 @@ const commentFormHandler = async (event) => {
   event.preventDefault();
 
   const detail = document.querySelector("#comment-detail").value;
-  const blogger_id = Number(document.querySelector("#blogger-id").textContent);
 
   console.log(`hey`);
   if (detail) {
     const response = await fetch(`/api/comments`, {
       method: "POST",
-      body: JSON.stringify({ detail, blogger_id }),
+      body: JSON.stringify({ detail }),
       headers: { "Content-Type": "application/json" },
     });
 

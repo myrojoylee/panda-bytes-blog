@@ -21,7 +21,7 @@ Post.init(
       defaultValue: DataTypes.NOW,
     },
     detail: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     blogger_id: {
       type: DataTypes.INTEGER,
