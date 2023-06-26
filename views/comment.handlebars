@@ -38,8 +38,9 @@
   </div>
 
   {{! renders list of comments if they exist }}
-  <article class="card">
-    {{#if comments.length}}
+
+  {{#if comments.length}}
+    <article class="card">
       <h3>{{comments.length}} Comments:</h3>
       {{#each comments as |comment|}}
 
@@ -48,8 +49,9 @@
           <p class="card-detail">{{detail}}</p>
         </div>
       {{/each}}
-    {{/if}}
-  </article>
+    </article>
+  {{/if}}
+
   <span id="current-user">{{blogger_id}}</span>
 </section>
 

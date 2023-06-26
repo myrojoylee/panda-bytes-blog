@@ -78,18 +78,21 @@ router.get("/post/:id", withAuth, async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
-          model: Blogger,
-          attributes: ["username", "id"],
-        },
-        {
           model: Comment,
           attributes: ["detail", "blogger_id", "post_id"],
+        },
+        {
+          model: Blogger,
+          attributes: ["username", "id"],
         },
       ],
     });
 
     const post = postData.get({ plain: true });
+    // const comment = commentData.get({ plain: true });
 
+    console.log(post);
+    // console.log(comment);
     if (post.blogger_id === req.session.blogger_id) {
       res.render("post", {
         ...post,

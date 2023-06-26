@@ -29,8 +29,9 @@
 
     </form>
   </section>
-  <article class="card">
-    {{#if comments.length}}
+
+  {{#if comments.length}}
+    <article class="card">
       <h3>{{comments.length}} Comments:</h3>
       {{#each comments as |comment|}}
 
@@ -39,8 +40,9 @@
           <p class="card-detail">{{detail}}</p>
         </div>
       {{/each}}
-    {{/if}}
-  </article>
+    </article>
+  {{/if}}
+
 </div>
 
 <script src="/js/post.js"></script>

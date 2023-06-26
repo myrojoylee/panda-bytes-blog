@@ -4,52 +4,58 @@
 
 ## Description
 
-This application is a mock-style Content Management System (CMS)!
-
-<img src="https://github.com/myrojoylee/panda-bytes-blog/blob/main/public/css/assets/blog-preview.png" width = "700" />
-
-WIP! Follow below to track my progress!
-
-- [ ] GIVEN a CMS-style blog site
-- [x] WHEN I visit the site for the first time
-- [x] THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in -[ ] WHEN I click on the homepage option
-- [x] THEN I am taken to the homepage
-- [x] WHEN I click on any other links in the navigation
-- [x] THEN I am prompted to either sign up or sign in
-- [x] WHEN I choose to sign up
-- [x] THEN I am prompted to create a username and password
-- [x] WHEN I click on the sign-up button
-- [x] THEN my user credentials are saved and I am logged into the site
-- [x] WHEN I revisit the site at a later time and choose to sign in
-- [x] THEN I am prompted to enter my username and password
-- [x] WHEN I am signed in to the site
-- [x] THEN I see navigation links for the homepage, the dashboard, and the option to log out
-- [x] WHEN I click on the homepage option in the navigation
-- [x] THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-- [x] WHEN I click on an existing blog post
-- [x] THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-- [ ] WHEN I enter a comment and click on the submit button while signed in
-- [ ] THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-- [x] WHEN I click on the dashboard option in the navigation
-- [x] THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-- [x] WHEN I click on the button to add a new blog post
-- [ ] THEN I am prompted to enter both a title and contents for my blog post
-- [x] WHEN I click on the button to create a new blog post
-- [x] THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-- [x] WHEN I click on one of my existing posts in the dashboard
-- [x] THEN I am able to delete or update my post and taken back to an updated dashboard
-- [x] WHEN I click on the logout option in the navigation
-- [x] THEN I am signed out of the site
-- [x] WHEN I am idle on the site for more than a set time
-- [x] THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
+This application is a mock-style Content Management System (CMS). It implements full CRUD functionality by being able to create, read, update, and delete posts. A user is able to sign up for an account or log in to an existing one. Posts can be written or commented on depending on login status and all posts are visible on the homepage. Finally, the completed app is deployed on Heroku for use.
 
 ## Installation
 
+- MySQL is required for this app to run, so follow directions outlined [here](https://coding-boot-camp.github.io/full-stack/mysql/mysql-installation-guide) for a step-by-step guide depending on your operating system.
+- This is a [Node.js](https://nodejs.org/en) application. It is recommended to use at least v16 (up to v18) for this app to run correctly.
+
+### Dependencies
+
+Type the following in your terminal to run the application:
+
+`npm i express`
+
+- [Bcrypt](https://www.npmjs.com/package/bcrypt) is a bcrypt NodeJSlibrary needed for password hashing.
+
+- [Express](https://expressjs.com/) is web framework for NodeJS.
+
+`npm i express-session`
+
+- [Express-session](https://www.npmjs.com/package/express-session) is the session middleware for Express.
+
+- [Express-handlebars](https://www.npmjs.com/package/express-handlebars) is the templating engine utilized in the app.
+
+`npm i sequelize`
+
+- [Sequelize](https://sequelize.org/) is the ORM tool used in this work.
+
+`npm i connect-session-sequelize`
+
+- [Connect Session Store using Sequelize](https://www.npmjs.com/package/connect-session-sequelize) connects the session with Sequelize.
+
+`npm i mysql2`
+
+- [MySQL2](https://www.npmjs.com/package/mysql2) is needed to connect the app to the MySQL database.
+
+`npm i dotenv`
+
+- [dotenv](https://www.npmjs.com/package/dotenv) is needed to handle environmental variables that hold sensitive data.
+
+### Optional, but recommended:
+
+- [Nodemon](https://nodemon.io/) to enable automatic restarting of your server upon any detected changes.
+
 ## Usage
 
-## Testing
+A user can sign up, log in, submit/edit/delete their posts, or comment on other posts. Simply click on the website to try it out. A demo gif is shown below:
+
+<img src="https://github.com/myrojoylee/panda-bytes-blog/blob/main/public/css/assets/blog-preview.png" width = "700" />
 
 ## Contribution Guidelines
+
+N/A
 
 ## Credits/Acknowledgments
 

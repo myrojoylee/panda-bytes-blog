@@ -69,9 +69,9 @@ const deletePostHandler = async (event) => {
 };
 
 document
-  .querySelectorAll(".updateBtn")
-  .forEach((btn) => btn.addEventListener("click", updatePostHandler));
+  .querySelector(".updateBtn")
+  .addEventListener("click", updatePostHandler);
 
 document
-  .querySelectorAll(".deleteBtn")
-  .forEach((btn) => btn.addEventListener("click", deletePostHandler));
+  .querySelector(".deleteBtn")
+  .addEventListener("click", deletePostHandler);
