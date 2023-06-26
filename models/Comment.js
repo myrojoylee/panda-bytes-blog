@@ -17,7 +17,8 @@ Comment.init(
       defaultValue: DataTypes.NOW,
     },
     detail: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
     blogger_id: {
       type: DataTypes.INTEGER,

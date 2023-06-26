@@ -22,6 +22,7 @@ Post.init(
     },
     detail: {
       type: DataTypes.TEXT,
+      allowNull: false,
     },
     blogger_id: {
       type: DataTypes.INTEGER,
