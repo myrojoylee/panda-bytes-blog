@@ -83,7 +83,9 @@ h2 {
 }
 
 h3 {
+  display: flex;
   font-size: 1.25em;
+  width: 100%;
 }
 
 p,
@@ -177,7 +179,7 @@ main {
   border: 1px solid var(--clr--border);
   border-radius: 0.25em;
   padding: 0.5em;
-  width: 80%;
+  width: 100%;
 }
 
 .card-wrapper {
@@ -187,7 +189,7 @@ main {
   align-items: center;
   gap: 0.5em;
   border-radius: 0.25em;
-  width: 100%;
+  width: 80%;
 }
 
 .post-wrapper {

@@ -1,20 +1,22 @@
-{{#each posts as |post|}}
-  <section class="card">
-    <div class="post-wrapper">
-      <article class="card-header">
-        <a href="/post/{{post.id}}">
-          <h3>[<span class="numbered-post">{{id}}</span>]{{post.title}}</h3>
-        </a>
-        <p class="blog-author">Posted by
-          {{blogger.username}}
-          on
-          {{format_date date_created}}</p>
-      </article>
-      <article class="card-detail">
-        <p>
-          {{post.detail}}
-        </p>
-      </article>
-    </div>
-  </section>
-{{/each}}
+<div class="card-wrapper">
+  {{#each posts as |post|}}
+    <section class="card">
+      <div class="post-wrapper">
+        <article class="card-header">
+          <a href="/post/{{post.id}}">
+            <h3>[<span class="numbered-post">{{id}}</span>]{{post.title}}</h3>
+          </a>
+          <p class="blog-author">Posted by
+            {{blogger.username}}
+            on
+            {{format_date date_created}}</p>
+        </article>
+        <article class="card-detail">
+          <p>
+            {{post.detail}}
+          </p>
+        </article>
+      </div>
+    </section>
+  {{/each}}
+</div>

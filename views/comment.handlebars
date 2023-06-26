@@ -1,9 +1,10 @@
 <section class="card-wrapper">
+
   <div class="card">
     <div class="post-wrapper">
       <article class="card-header">
         <h2>
-          [<span class="numbered-post">{{id}}</span>]{{title}}
+          [<span id="numbered-post">{{id}}</span>]{{title}}
         </h2>
         <p class="date-and-time">
           Posted by
@@ -18,14 +19,14 @@
         </p>
       </article>
     </div>
-    <form class="card-wrapper">
+    <form class="card">
       <article class="new-post-form">
         <label class="form-detail" for="comment-detail">Type your comment below:</label>
         <textarea
           class="form-detail"
           id="comment-detail"
           name="comment-detail"
-          placeholder="Commenting as {{blogger_name}}(Member ID:{{blogger_id}})..."
+          placeholder="Commenting as {{blogger_name}}..."
         ></textarea>
       </article>
 
@@ -38,7 +39,7 @@
   </div>
 
   {{! renders list of comments if they exist }}
-  <article class="card-wrapper">
+  <article class="card">
 
     {{#if comments.length}}
       <h3>{{comments.length}} Comments:</h3>
@@ -50,6 +51,7 @@
       {{/each}}
     {{/if}}
   </article>
+  <span id="current-user">{{blogger_id}}</span>
 </section>
 
 <script src="/js/comment.js"></script>

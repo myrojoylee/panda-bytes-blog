@@ -25,18 +25,7 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", withAuth, async (req, res) => {
   try {
-    const newComment = await Comment.create(req.body, {
-      include: [
-        {
-          model: Post,
-          attributes: ["id"],
-        },
-        {
-          model: Blogger,
-          attributes: ["id"],
-        },
-      ],
-    });
+    const newComment = await Comment.create(req.body);
 
     console.log(newComment);
     res.status(200).json(newComment);
