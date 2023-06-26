@@ -25,6 +25,8 @@ Type the following in your terminal to run the application:
 
 - [Express-session](https://www.npmjs.com/package/express-session) is the session middleware for Express.
 
+`npm i express-handlebars`
+
 - [Express-handlebars](https://www.npmjs.com/package/express-handlebars) is the templating engine utilized in the app.
 
 `npm i sequelize`
@@ -45,7 +47,7 @@ Type the following in your terminal to run the application:
 
 ### Optional, but recommended:
 
-- [Nodemon](https://nodemon.io/) to enable automatic restarting of your server upon any detected changes.
+- [Nodemon](https://nodemon.io/) to enable automatic restarting of your server upon any detected changes. In your terminal, replace `node server` with `nodemon server`.
 
 ## Usage
 
