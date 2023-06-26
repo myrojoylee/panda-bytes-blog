@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Blogger } = require("../../models");
 
+// creating a new blogger account
 router.post("/", async (req, res) => {
   try {
     const bloggerData = await Blogger.create(req.body);
@@ -9,6 +10,7 @@ router.post("/", async (req, res) => {
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
       req.session.blogger_name = bloggerData.username;
+      req.session.commenter = bloggerData.username;
       req.session.logged_in = true;
       req.session.is_author = true;
       res.status(200).json(bloggerData);
@@ -18,6 +20,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// finding blogger by login info
 router.post("/login", async (req, res) => {
   try {
     const bloggerData = await Blogger.findOne(
@@ -48,6 +51,7 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.blogger_id = bloggerData.id;
       req.session.blogger_name = bloggerData.username;
+      req.session.commenter = bloggerData.username;
       req.session.logged_in = true;
       res.json({ blogger: bloggerData, message: "You are now logged in!" });
     });
@@ -56,6 +60,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// processing logout
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

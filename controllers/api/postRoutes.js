@@ -2,6 +2,7 @@ const router = require("express").Router();
 const withAuth = require("../../utils/auth");
 const { Post } = require("../../models");
 
+// finding a new post by id
 router.get("/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -18,6 +19,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// creating a new post
 router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -32,6 +34,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// updating a post by id
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updatedPostData = await Post.update(

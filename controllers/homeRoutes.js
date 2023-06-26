@@ -52,38 +52,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-// rendering logged-in user's post by id
-router.get("/dashboard/post/:id", withAuth, async (req, res) => {
-  try {
-    // Find the logged in blogger based on the session ID
-    const bloggerData = await Blogger.findByPk(req.session.blogger_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
-    });
-
-    const blogger = bloggerData.get({ plain: true });
-
-    // Get all posts and JOIN with user data
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Blogger,
-          attributes: ["username"],
-        },
-      ],
-    });
-    const post = postData.get({ plain: true });
-
-    res.render("dashboard-post", {
-      ...blogger,
-      ...post,
-      logged_in: true,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // rendering form for new post
 router.get("/new-post", withAuth, async (req, res) => {
   try {
@@ -122,16 +90,12 @@ router.get("/post/:id", withAuth, async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    // console.log(post);
-    // console.log(post.blogger_id);
-    // console.log(req.session.blogger_id);
-    // console.log(req.session.blogger_name);
-
     if (post.blogger_id === req.session.blogger_id) {
       res.render("post", {
         ...post,
         blogger_id: req.session.blogger_id,
         blogger_name: req.session.blogger_name,
+        commenter: req.session.commenter,
         logged_in: req.session.logged_in,
       });
     } else {
@@ -139,6 +103,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
         ...post,
         blogger_id: req.session.blogger_id,
         blogger_name: req.session.blogger_name,
+        commenter: req.session.commenter,
         logged_in: req.session.logged_in,
       });
     }

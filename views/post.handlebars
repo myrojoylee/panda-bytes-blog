@@ -1,5 +1,5 @@
-<div class="card">
-  <section class="new-post-card">
+<div class="card-wrapper">
+  <section class="card">
     <h3>Edit Post:
       <span id="author">{{blogger.username}}</span></h3>
 
@@ -29,6 +29,18 @@
 
     </form>
   </section>
+  <article class="card">
+    {{#if comments.length}}
+      <h3>{{comments.length}} Comments:</h3>
+      {{#each comments as |comment|}}
+
+        <div class="card">
+          <p class="card-detail" id="commenter"> Member says:</p>
+          <p class="card-detail">{{detail}}</p>
+        </div>
+      {{/each}}
+    {{/if}}
+  </article>
 </div>
 
 <script src="/js/post.js"></script>

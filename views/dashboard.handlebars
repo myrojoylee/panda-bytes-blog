@@ -1,16 +1,17 @@
 <section class="card-wrapper">
   <article>
-    <h2>Welcome, <span class="current-user">{{username}}</span>!</h2>
+    <h2>Welcome, <span class="welcome-name">{{username}}</span> !</h2>
   </article>
-  <h3>Current Posts:</h3>
+  <a href="/new-post" class="add-new-post">+</a>
+
   {{#if posts.length}}
+    <h3>Your Posts:</h3>
     <article class="card">
 
       {{#each posts as |post|}}
 
-        <h4 class="card-header">
-          <a href="/dashboard/post/{{id}}" data-id="{{id}}">
-
+        <h4 class="card-header post-title">
+          <a href="/post/{{id}}" data-id="{{id}}">
             {{id}}:
             {{title}}
           </a>
@@ -19,6 +20,9 @@
 
       {{/each}}
     </article>
+  {{else}}
+    <p class="notice">No posts here! Click the blue plus button above to start
+      creating!</p>
   {{/if}}
-  <a href="/new-post" class="add-new-post">+</a>
+
 </section>

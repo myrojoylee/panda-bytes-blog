@@ -1,3 +1,4 @@
+// fetches data from the form and processes data
 const commentFormHandler = async (event) => {
   event.preventDefault();
 

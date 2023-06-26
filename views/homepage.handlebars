@@ -1,10 +1,12 @@
 <div class="card-wrapper">
+  <h3>{{posts.length}} posts</h3>
   {{#each posts as |post|}}
     <section class="card">
       <div class="post-wrapper">
+
         <article class="card-header">
           <a href="/post/{{post.id}}">
-            <h3>[<span class="numbered-post">{{id}}</span>]{{post.title}}</h3>
+            <h3 class="post-title">[<span>{{id}}</span>] {{post.title}}</h3>
           </a>
           <p class="blog-author">Posted by
             {{blogger.username}}
