@@ -57,9 +57,9 @@ A user can sign up, log in, submit/edit/delete their posts, or comment on other 
 
 ## Contribution Guidelines
 
-N/A
-
 ## Credits/Acknowledgments
+
+Thanks to [Jake Duncan](https://github.com/jjsdunc88) for testing out the features for me!
 
 ## License
 
