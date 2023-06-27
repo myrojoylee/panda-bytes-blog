@@ -79,7 +79,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       include: [
         {
           model: Comment,
-          attributes: ["detail", "blogger_id", "post_id"],
+          include: [Blogger],
         },
         {
           model: Blogger,
@@ -91,7 +91,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
     // const comment = commentData.get({ plain: true });
 
-    console.log(post);
+    // console.log(post.comments[0].blogger);
     // console.log(comment);
     if (post.blogger_id === req.session.blogger_id) {
       res.render("post", {

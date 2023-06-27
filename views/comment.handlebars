@@ -45,7 +45,10 @@
       {{#each comments as |comment|}}
 
         <div class="card">
-          <p class="card-detail" id="comment"> Member says:</p>
+          <p class="card-detail" id="comment">
+            {{comment.blogger.username}}
+            says:
+          </p>
           <p class="card-detail">{{detail}}</p>
         </div>
       {{/each}}
