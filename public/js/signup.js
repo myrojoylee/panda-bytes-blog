@@ -1,3 +1,4 @@
+// handles new account sign up
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

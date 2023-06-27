@@ -90,8 +90,6 @@ router.get("/post/:id", withAuth, async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    // console.log(post.comments[0].blogger);
-
     if (post.blogger_id === req.session.blogger_id) {
       res.render("post", {
         ...post,
