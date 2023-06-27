@@ -15,9 +15,11 @@ This application is a mock-style Content Management System (CMS). It implements 
 
 Type the following in your terminal to run the application:
 
-`npm i express`
+`npm i bcrypt`
 
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) is a bcrypt NodeJSlibrary needed for password hashing.
+
+`npm i express`
 
 - [Express](https://expressjs.com/) is web framework for NodeJS.
 
@@ -56,6 +58,8 @@ A user can sign up, log in, submit/edit/delete their posts, or comment on other 
 <img src="https://github.com/myrojoylee/panda-bytes-blog/blob/main/public/css/assets/panda-bytes-blog-demo.gif" width = "700" />
 
 ## Contribution Guidelines
+
+None at this time.
 
 ## Credits/Acknowledgments
 
