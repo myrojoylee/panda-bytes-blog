@@ -53,7 +53,7 @@ Type the following in your terminal to run the application:
 
 A user can sign up, log in, submit/edit/delete their posts, or comment on other posts. Simply click on the [website](https://panda-bytes-blog-2c69ca0b6d05.herokuapp.com/) to try it out. A demo gif is shown below:
 
-<img src="https://github.com/myrojoylee/panda-bytes-blog/blob/main/public/css/assets/blog-preview.png" width = "700" />
+<img src="https://github.com/myrojoylee/panda-bytes-blog/blob/main/public/css/assets/panda-bytes-blog.gif" width = "700" />
 
 ## Contribution Guidelines
 
