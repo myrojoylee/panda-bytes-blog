@@ -67,4 +67,4 @@ Thanks to [Jake Duncan](https://github.com/jjsdunc88) for testing out the featur
 
 ## License
 
-Refer to the license in the respository.
+Refer to the license in the repository.
